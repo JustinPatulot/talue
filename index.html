@@ -1,0 +1,720 @@
+
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/config/session_config.php';
+require_once __DIR__ . '/controller/connection.php';
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talaue 88 - Dental Clinic</title>
+    <link rel="icon" type="image/png" href="assets/TALAUE88.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100" tabindex="0">
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+        <div class="container">
+            <img src="assets/TALAUE88.png" alt="Talaue 88 Dental Clinic" class="navbar-logo">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">HOME</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">ABOUT</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">SERVICES</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">CONTACT</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1 class="fade-up delay-1">Welcome to Talaue 88 Dental Clinic</h1>
+
+                    <p class="lead my-4 fade-up delay-2">
+                        Designing Smiles, Defining Confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 reveal">
+                    <h2>About Us</h2>
+
+                    <p class="lead mt-3">
+                        We provide exceptional dental care through a
+                        skilled team that prioritizes your comfort and
+                        well-being. From routine check-ups and
+                        pediatric dentistry to specialized services like
+                        orthodontics, periodontics, and root canal
+                        treatments, we offer personalized solutions
+                        for every smile. Our clinic is equipped with
+                        advanced diagnostics, including panoramic
+                        and periapical radiographs, to ensure
+                        precision in everything from direct composite
+                        veneers and oral rehabilitation to extractions
+                        and odontectomy. Trust us to deliver
+                        professional, compassionate care designed to
+                        keep your smile healthy and confident.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-hero">
+        <div class="services-background"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 ms-auto reveal text-end">
+                    <h2>Services Offered</h2>
+                </div>
+            </div>
+
+            <div class="row reveal">
+                <div class="col-12 text-end mb-4">
+                    <p class="services-subtitle">Here are the services offered by Talaue 88!</p>
+                </div>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="services-filters" role="tablist" aria-label="Filter treatments">
+                <button class="services-filter is-active" data-filter="all" role="tab" aria-selected="true">All Treatments</button>
+                <button class="services-filter" data-filter="general" role="tab" aria-selected="false">General Care</button>
+                <button class="services-filter" data-filter="restorative" role="tab" aria-selected="false">Restorative</button>
+                <button class="services-filter" data-filter="cosmetic" role="tab" aria-selected="false">Cosmetic &amp; Surgery</button>
+            </div>
+
+            <!-- Expanding panels -->
+            <div class="services-grid" id="servicesGrid">
+
+                <button class="service-item is-open" style="--i:0" data-cat="general" aria-expanded="true">
+
+                    <span class="service-media"><img src="assets/1.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-comments-medical"></i><span>Oral Consultation</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 1</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 30 - 45 mins</span>
+                        </span>
+                        <h3>Oral Consultation</h3>
+                        <p>A dental professional uses a small mouth mirror and explorer to inspect the teeth, gums, and oral cavityThey check for signs of decay, gum disease, bite abnormalities, and other oral health issues..</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:1" data-cat="general" aria-expanded="false">
+                    <span class="service-media"><img src="assets/2.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-tooth"></i><span>Oral Prophylaxis</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 2</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 30 - 45 mins</span>
+                        </span>
+                        <h3>Oral Prophylaxis</h3>
+                        <p>The dentist or hygienist uses a specialized dental instrument (such as an ultrasonic scaler) to clean the teeth..</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:2" data-cat="restorative" aria-expanded="false">
+                    <span class="service-media"><img src="assets/3.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-fill-drip"></i><span>Restoration</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 3</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 30 - 60 mins</span>
+                        </span>
+                        <h3>Restoration</h3>
+                        <p>Tooth-colored composite or filling material is shaped into the cavity and hardened using a curing light to restore the tooth's normal structure.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:3" data-cat="cosmetic" aria-expanded="false">
+                    <span class="service-media"><img src="assets/4.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-tooth-broken"></i><span>Extractions</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 4</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 30 - 60 mins</span>
+                        </span>
+                        <h3>Extractions</h3>
+                        <p>Gentle removal of damaged or problem teeth, guided by panoramic and periapical radiographs.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:4" data-cat="cosmetic" aria-expanded="false">
+                    <span class="service-media"><img src="assets/5.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-face-smile"></i><span>Veneers</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 5</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 60 - 90 mins</span>
+                        </span>
+                        <h3>Veneers</h3>
+                        <p>Direct composite veneers that reshape and brighten your smile in a single visit.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:5" data-cat="restorative" aria-expanded="false">
+                    <span class="service-media"><img src="assets/6.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-crown"></i><span>Crown &amp; Bridge</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 6</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 60 - 90 mins</span>
+                        </span>
+                        <h3>Crown &amp; Bridge</h3>
+                        <p>Durable caps and bridges that restore the strength, shape, and function of damaged or missing teeth.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:6" data-cat="restorative" aria-expanded="false">
+                    <span class="service-media"><img src="assets/7.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-teeth"></i><span>Fix bridge</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 7</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> Multiple visits</span>
+                        </span>
+                        <h3>Fix bridge</h3>
+                        <p>Comfortable, natural-looking replacements as part of oral rehabilitation, fitted to your bite.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:7" data-cat="cosmetic" aria-expanded="false">
+                    <span class="service-media"><img src="assets/8.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-arrows-left-right-to-line"></i><span>Orthodontic Treatment</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 8</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> Monthly visits</span>
+                        </span>
+                        <h3>Orthodontic Treatment</h3>
+                        <p>Braces and aligners that straighten teeth and correct your bite, with regular adjustments.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:8" data-cat="cosmetic" aria-expanded="false">
+                    <span class="service-media"><img src="assets/9.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-tooth"></i><span>Odontectomy</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 9</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 60 - 90 mins</span>
+                        </span>
+                        <h3>Odontectomy</h3>
+                        <p>Surgical removal of impacted or hard-to-reach teeth, performed with careful imaging and planning.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+                <button class="service-item" style="--i:9" data-cat="restorative" aria-expanded="false">
+                    <span class="service-media"><img src="assets/10.png" alt="" loading="lazy"></span>
+                    <span class="service-rail"><i class="fa-solid fa-syringe"></i><span>Root Canal Treatment</span></span>
+                    <span class="service-detail">
+                        <span class="service-tags">
+                            <span class="service-tag is-service"><i class="fa-solid fa-stethoscope"></i> Service 10</span>
+                            <span class="service-tag is-time"><i class="fa-regular fa-clock"></i> 60 - 90 mins</span>
+                        </span>
+                        <h3>Root Canal Treatment</h3>
+                        <p>Removes infected tissue inside the tooth to relieve pain and save the tooth.</p>
+                        <span class="service-foot">
+
+                            <a class="btn btn-warning" href="appointment.php"><i class="fa-solid fa-calendar-check me-2"></i>Book Now</a>
+                        </span>
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="hmo-hero">
+        <div class="container">
+
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8 reveal">
+                    <h2>Accepted HMOs</h2>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRt3I9_fiiVMwwfrvUQwIBudFw3X0BZ9GE8qFl4b1r11it_G1wP5YS0wby&s=10"
+                                alt="IWC Logo">
+                        </div>
+                        <h5>IWC Wellness and Preventive Consultancy Inc.</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://cdn.prod.website-files.com/66432b8bed35f1f0d0abfcf3/666a8fd07600152faddd66b7_HPPI-colored-png.png"
+                                alt="HPPI Logo">
+                        </div>
+                        <h5>Health Plan Philippines Inc.</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlbCj6WS2XyTOi2ngxr_KWAsty9DHMZ2D-jP9KWan7U8C4sGmS3Dy4EtE&s=10"
+                                alt="RMC2 Logo">
+                        </div>
+                        <h5>RMC2 Consultancy Corporation</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://iwc.com.ph/_nuxt/img/logo.ad2863c.png" alt="IMS Logo">
+                        </div>
+                        <h5>IMS Wellth Care Inc.</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://clientupdate.pacificcross.com.ph/images/logo.jpg"
+                                alt="Pacific Cross Logo">
+                        </div>
+                        <h5>Pacific Cross Philippines</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShpxP_C0hvWU4TecvmD3j_pi-yt-qqCso2T4eiXsKau57932Cp-ncRC9I&s=10"
+                                alt="Health Connect Logo">
+                        </div>
+                        <h5>Health Connect</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://icare.com.ph/wp-content/uploads/2024/09/iCare_Official-Logo-Orange-Variant-Mobile.png"
+                                alt="iCare Logo">
+                        </div>
+                        <h5>iCare</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://healthbridgeph.com/wp-content/uploads/2022/01/HealthBridgeLogo.webp"
+                                alt="Health Bridge Logo">
+                        </div>
+                        <h5>Health Bridge</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="hmo-card">
+                        <div class="logo-wrapper">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHM6sTC4j6topj1uk4IsIMEOT3XMysmL80xBL1Gds5CTpeoWgSdcTYvTw&s=10"
+                                alt="eTiQa Logo">
+                        </div>
+                        <h5>eTiQa</h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="dentist-hero">
+        <div class="container">
+
+            <!-- Section Heading -->
+            <div class="row justify-content-center text-center mb-5">
+                <div class="col-lg-8 reveal">
+                    <h2>Meet the Dentists</h2>
+                </div>
+            </div>
+
+
+            <!-- Head Dentist -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10 reveal">
+                    <div class="dentist-card head-dentist-card" style="--d:0">
+
+                        <div class="dentist-image">
+                            <img src="assets/headdentist_jet_t.png" alt="Dr. Jet Talaue">
+                        </div>
+
+                        <div class="dentist-info">
+
+                            <span class="dentist-role">
+                                Head Dentist
+                            </span>
+
+                            <h3>Dr. Jet Talaue</h3>
+
+                            <p>
+                                Oral Surgery Esthetic Dentistry
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Other Dentists -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8 text-center reveal">
+                    <h3 class="dentist-subheading">
+                        Our Dental Team
+                    </h3>
+                </div>
+            </div>
+
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- Doctor 2 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="dentist-card" style="--d:1">
+
+                        <div class="dentist-image">
+                            <img src="assets/doctor-2.jpg" alt="Dr. [Doctor Name]">
+                        </div>
+
+                        <div class="dentist-info">
+                            <h4>Dr. [Doctor Name]</h4>
+
+                            <p class="dentist-title">
+                                General Dentist
+                            </p>
+
+                            <p>
+                                Dedicated to delivering personalized treatment
+                                and creating healthy, confident smiles.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Doctor 3 -->
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="dentist-card" style="--d:2">
+
+                        <div class="dentist-image">
+                            <img src="assets/doctor-3.jpg" alt="Dr. [Doctor Name]">
+                        </div>
+
+                        <div class="dentist-info">
+                            <h4>Dr. [Doctor Name]</h4>
+
+                            <p class="dentist-title">
+                                General Dentist
+                            </p>
+
+                            <p>
+                                Focused on quality dental care through
+                                modern techniques and a patient-centered approach.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-hero">
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6 reveal">
+                    <h2>Contact Us</h2>
+
+                    <p class="lead mt-3">
+                        Need a dental consultation? Book now so we can assist you!
+                    </p>
+
+                    <div class="contact-info mt-4">
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h5>Clinic Address</h5>
+                                <p><strong>Pasay Branch: </strong>102 Moana St., Gran Amore Residences, FB Harrison,
+                                    Pasay City</p>
+                                <p><strong>Taguig Branch: </strong>85 M.L.Quezon Street, Purok 2, New Lower Bicutan,
+                                    Taguig City</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h5>Phone Number</h5>
+                                <p>0927 365 3623</p>
+                                <p>0915 759 5743</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Clinic Hours</h5>
+                                <p>Open Everyday | 10:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-5 ms-auto reveal">
+
+                    <div class="contact-card">
+
+                        <!-- Tabs -->
+                        <ul class="nav nav-tabs mb-3" id="mapTabs" role="tablist">
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="branch1-tab" data-bs-toggle="tab"
+                                    data-bs-target="#branch1" type="button" role="tab">
+                                    Pasay Branch
+                                </button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="branch2-tab" data-bs-toggle="tab" data-bs-target="#branch2"
+                                    type="button" role="tab">
+                                    Taguig Branch
+                                </button>
+                            </li>
+
+                        </ul>
+
+                        <!-- Maps -->
+                        <div class="tab-content">
+
+                            <!-- Pasay -->
+                            <div class="tab-pane fade show active" id="branch1" role="tabpanel">
+
+                                <div class="map-wrapper">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.924868926886!2d120.99191607488443!3d14.544625485935148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90005bdf971%3A0x3d60d830b89d02cc!2sTalaue%2088%20Dental%20Clinic!5e1!3m2!1sen!2sph!4v1785682997177!5m2!1sen!2sph"
+                                        allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                                    </iframe>
+                                </div>
+
+                            </div>
+
+                            <!-- Taguig -->
+                            <div class="tab-pane fade" id="branch2" role="tabpanel">
+
+                                <div class="map-wrapper">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d965.6623165005137!2d121.06527749999997!3d14.504812800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cf45a0c9d367%3A0x34e297cc1ef67678!2s85%20M.%20L.%20Quezon%20Ave%2C%20Taguig%2C%201632%20Metro%20Manila!5e0!3m2!1sen!2sph!4v1785764118197!5m2!1sen!2sph"
+                                        allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin">
+                                    </iframe>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Appointment Button -->
+                    <div class="text-center mt-4 reveal">
+
+                        <p>Need a checkup? Schedule an appointment now!</p>
+
+                        <a href="appointment.php" class="btn btn-warning btn-lg px-4">
+                            <i class="fa-solid fa-calendar-check me-2"></i>
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Talaue 88 Dental Clinic</p>
+        </div>
+
+        <a href="https://www.facebook.com/profile.php?id=61581983441620" target="_blank" rel="noopener noreferrer"
+            class="footer-link">
+            <i class="fa-brands fa-facebook"></i> Follow us on Facebook
+        </a>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (Includes Popper for dropdowns) -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/animations.js"></script>
+
+    <!-- Services grid + dentist cards scroll-triggered animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedItems = document.querySelectorAll('.service-item, .dentist-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target); // only plays once
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            animatedItems.forEach(item => observer.observe(item));
+        });
+    </script>
+
+    <!-- Services: expanding panels + category filter -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('servicesGrid');
+            const panels = [...grid.querySelectorAll('.service-item')];
+            const filters = [...document.querySelectorAll('.services-filter')];
+
+            function openPanel(panel) {
+                panels.forEach(p => {
+                    const on = p === panel;
+                    p.classList.toggle('is-open', on);
+                    p.setAttribute('aria-expanded', on);
+                });
+            }
+
+            const canHover = window.matchMedia('(hover: hover)').matches;
+            panels.forEach(p => {
+                p.addEventListener('click', e => {
+                    if (e.target.closest('a')) return; // let Book Now navigate
+                    openPanel(p);
+                });
+                p.addEventListener('focus', () => openPanel(p));
+                if (canHover) p.addEventListener('mouseenter', () => openPanel(p));
+            });
+
+            filters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cat = btn.dataset.filter;
+                    filters.forEach(b => {
+                        const on = b === btn;
+                        b.classList.toggle('is-active', on);
+                        b.setAttribute('aria-selected', on);
+                    });
+                    panels.forEach(p => {
+                        p.hidden = cat !== 'all' && p.dataset.cat !== cat;
+                    });
+                    openPanel(panels.find(p => !p.hidden));
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
