@@ -1,0 +1,57 @@
+.tooth-rain {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tooth {
+    position: absolute;
+    top: -80px;
+
+    font-size: 22px;
+    opacity: 0.35;
+
+    animation-name: tooth-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.08));
+}
+
+@keyframes tooth-fall {
+    0% {
+        transform: translateY(-80px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(25vh) rotate(45deg);
+    }
+
+    50% {
+        transform: translateY(50vh) rotate(90deg);
+    }
+
+    75% {
+        transform: translateY(75vh) rotate(135deg);
+    }
+
+    100% {
+        transform: translateY(calc(100vh + 80px)) rotate(180deg);
+    }
+}
+
+.admin-signin-card,
+main,
+nav {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tooth {
+        animation: none;
+        display: none;
+    }
+}

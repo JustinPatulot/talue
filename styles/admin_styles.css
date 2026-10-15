@@ -1,0 +1,370 @@
+body {
+    --bs-body-font-family: "Google Sans Flex", sans-serif;
+    padding-top: 80px;
+}
+
+.dashboard-card,
+.dashboard-section {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+}
+
+/* =========================================
+   ADMIN FLOATING NAVBAR
+   ========================================= */
+
+.admin-floating-navbar {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+
+    z-index: 1050;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 24px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.06);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* Navigation items */
+
+.admin-floating-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 48px;
+    padding: 0 15px;
+
+    color: #555;
+    text-decoration: none;
+
+    border: 0;
+    border-radius: 18px;
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Icons */
+
+.admin-floating-item i {
+    font-size: 1rem;
+}
+
+
+/* Hover */
+
+.admin-floating-item:hover {
+    color: #222;
+    background: rgba(0, 0, 0, 0.055);
+}
+
+
+/* Active */
+
+.admin-floating-item.active {
+    color: #111;
+    background: #eeeeee;
+}
+
+
+/* Press */
+
+.admin-floating-item:active {
+    transform: scale(0.94);
+}
+
+
+/* More wrapper */
+
+.admin-floating-more-wrapper {
+    display: none;
+}
+
+
+/* Remove Bootstrap dropdown arrow */
+
+.admin-floating-more::after {
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 868px) {
+
+    .admin-floating-navbar {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+
+        transform: none;
+
+        width: auto;
+
+        justify-content: space-around;
+
+        padding: 6px;
+
+        border-radius: 22px;
+    }
+
+
+    /* Hide secondary desktop items */
+
+    .admin-mobile-more-item {
+        display: none;
+    }
+
+
+    /* Show More */
+
+    .admin-floating-more-wrapper {
+        display: block;
+    }
+
+
+    /* Mobile item */
+
+    .admin-floating-item {
+        min-width: 70px;
+        min-height: 50px;
+
+        padding: 6px 10px;
+
+        flex-direction: column;
+
+        gap: 3px;
+
+        border-radius: 17px;
+
+        font-size: 0.68rem;
+    }
+
+
+    .admin-floating-item i {
+        font-size: 1rem;
+    }
+
+
+    /* More dropdown */
+
+    .admin-more-menu {
+        min-width: 210px;
+
+        margin-bottom: 12px !important;
+
+        padding: 8px;
+
+        border: 0;
+        border-radius: 18px;
+
+        box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.15);
+
+        overflow: hidden;
+    }
+
+
+    .admin-more-menu .dropdown-item {
+        display: flex;
+        align-items: center;
+
+        padding: 12px 14px;
+
+        border-radius: 12px;
+
+        font-size: 0.9rem;
+    }
+
+
+    .admin-more-menu .dropdown-item i {
+        width: 20px;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL PHONES
+   ========================================= */
+
+@media (max-width: 400px) {
+
+    .admin-floating-navbar {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+    }
+
+    .admin-floating-item {
+        min-width: 64px;
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+
+}
+
+/* Dentist's Page*/
+.admin-search {
+    max-width: 600px;
+}
+
+/* =========================
+   Admin Data Table
+   ========================= */
+
+.admin-table-container {
+    background: #f7f7f7;
+    border: 1px solid #e2e2e2;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.admin-table {
+    margin-bottom: 0;
+}
+
+/* Header */
+
+.admin-table thead {
+    background: #212529;
+    color: #fff;
+}
+
+.admin-table thead th {
+    padding: 15px 18px;
+    font-weight: 600;
+    border: none;
+    white-space: nowrap;
+}
+
+/* Body */
+
+.admin-table tbody {
+    background: #fafafa;
+}
+
+.admin-table tbody td,
+.admin-table tbody th {
+    padding: 16px 18px;
+    vertical-align: middle;
+    border-color: #e2e2e2;
+}
+
+.admin-actions-cell {
+    min-width: 120px;
+    white-space: nowrap;
+}
+
+.admin-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+
+
+.admin-table tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.admin-table tbody tr:hover {
+    background: #eeeeee;
+}
+
+.admin-table tbody tr:last-child td,
+.admin-table tbody tr:last-child th {
+    border-bottom: none;
+}
+
+/*
+ * ---------------------------------------------------------
+ * Universal Flash Message Animation
+ * ---------------------------------------------------------
+ */
+
+.flash-message {
+    opacity: 0;
+    transform: translateY(-8px);
+    animation:
+        flashMessageIn 0.35s ease forwards,
+        flashMessageOut 0.4s ease 4s forwards;
+}
+
+@keyframes flashMessageIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flashMessageOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+/*
+ * Respect users who prefer reduced motion.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .flash-message {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+}
+
+.admin-page-content {
+    padding-bottom: 100px;
+}

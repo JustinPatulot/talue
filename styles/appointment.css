@@ -1,0 +1,190 @@
+body {
+  --bs-body-font-family: "Google Sans Flex", sans-serif;
+  padding-top: 60px;
+  /* dagdag para hindi matakpan ng navbar */
+  padding-bottom: 80px;
+  /* dagdag para hindi matakpan ng fixed footer */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.appointment-header {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 700px;
+}
+
+.appointment-header h1 {
+  color: #dab900;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.appointment-header h5 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Appointment form */
+.wrapper {
+  background-color: #f2f2f2;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Two-column grid */
+.wrapper form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 40px;
+}
+
+/* Labels */
+.wrapper label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Inputs and selects */
+.wrapper input[type="email"],
+.wrapper input[type="text"],
+.wrapper input[type="number"],
+.wrapper input[type="date"],
+.wrapper input[type="time"],
+.wrapper select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Date + Time side by side */
+.date-time-group {
+  display: flex;
+  gap: 20px;
+  /* spacing sa pagitan ng Date at Time */
+}
+
+.date-time-group div {
+  flex: 1;
+  /* pantay ang lapad ng dalawang field */
+}
+
+.date-time-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Confirm button */
+#confirmBtn {
+  background-color: #dab900;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  justify-self: start;
+  /* align sa left ng right column */
+}
+
+#confirmBtn:hover {
+  background-color: #c4a600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper form {
+    grid-template-columns: 1fr;
+  }
+
+  #confirmBtn {
+    width: 100%;
+    justify-self: center;
+  }
+}
+
+.email-note {
+  grid-column: span 2;
+  font-size: 13px;
+  color: #555;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.privacy-consent {
+  grid-column: span 2;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.privacy-consent input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: #dab900;
+  /* gold tone checkbox */
+}
+
+/* Footer */
+.footer {
+  background: #1f2937;
+  color: #e5e7eb;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer p {
+  margin: 0 0 8px;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #1877f2;
+  /* Facebook blue */
+}
+
+.footer-link i {
+  font-size: 1.2rem;
+}
